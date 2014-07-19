@@ -1,0 +1,7 @@
+cloud_controller_ng/
+*~
+\#*\#
+.\#*
+.bundle
+.DS_Store
+/.tmp
