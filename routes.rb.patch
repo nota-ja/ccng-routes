@@ -1,0 +1,13 @@
+diff --git a/lib/cloud_controller/rest_controller/routes.rb b/lib/cloud_controller/rest_controller/routes.rb
+index cfa969d..cc1395b 100644
+--- a/lib/cloud_controller/rest_controller/routes.rb
++++ b/lib/cloud_controller/rest_controller/routes.rb
+@@ -18,6 +18,8 @@ module VCAP::CloudController::RestController
+             blk.yield(api, *args)
+           end
+         end
++        action = method || blk
++        $stderr.printf("####### %-6s %-80s {:controller => \"#{klass}\", :action => \"#{action.to_s}\"}\n", verb.upcase, path)
+       end
+ 
+       [:post, :get, :put, :delete].each do |verb|
