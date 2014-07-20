@@ -81,6 +81,23 @@ CCNG_REPO=path/to/cloud_controller_ng BUNDLE_GEMFILE=path/to/cloud_controller_ng
 As a matter of fact, the ccng-routes.sh script executes the process described above.
 
 
+## Known Issue(s)
+
+Sometimes rake may fail because of version unmatch of nokogiri's dynamically compiled library.
+```
+rake aborted!
+dlopen(cloud_controller_ng/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.1/lib/nokogiri/nokogiri.bundle, 9): Library not loaded: cloud_controller_ng/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.1/ports/x86_64-apple-darwin13.3.0/libxml2/2.8.0/lib/libxml2.2.dylib
+```
+A workaround is:
+```
+pushd $CCNG_REPO
+rm vendor/bundle/ruby/1.9.1/specifications/nokogiri-1.6.1.gemspec
+rm -rf vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.1/
+bundle install --path vendor/bundle
+popd
+```
+
+
 ## LICENSE
 
    Copyright 2014 Noburou TANIGUCHI (dev@nota.m001.jp)
