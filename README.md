@@ -81,6 +81,21 @@ CCNG_REPO=path/to/cloud_controller_ng BUNDLE_GEMFILE=path/to/cloud_controller_ng
 As a matter of fact, the ccng-routes.sh script executes the process described above.
 
 
+## Tips
+
+### Post production
+
+A generated route may contain an ID of Proc object and a path to the cloud_controller_ng repo when the action part of the route is defines as a Proc object. It's not convenient to compare two sets of API routes of different revisions and / or in different paths.
+
+I am using the following script to remove those extra information:
+```
+cat routes.txt | perl -lane 's/Proc:0x[0-9a-f]+@.+\/cloud_controller_ng\//Proc:\@/; print $_' | sort > marshalled.routes.txt
+```
+(Assume routes.txt is a set of generated routes)
+
+If you make another marshalled set of routes, then you can compare the two route sets.
+
+
 ## Known Issue(s)
 
 Sometimes rake may fail because of version unmatch of nokogiri's dynamically compiled library.
