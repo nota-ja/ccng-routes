@@ -6,6 +6,11 @@ if [ ! -d $ccng_repo ]; then
     git clone https://github.com/cloudfoundry/cloud_controller_ng.git
 fi
 
+if [ -h .ruby-version ]; then
+    rm -f .ruby-version
+fi
+ln -s $ccng_repo/.ruby-version .
+
 pushd $ccng_repo
 
 if [ "${CCNG_REV}" != "" ]; then

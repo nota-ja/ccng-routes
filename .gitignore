@@ -4,4 +4,5 @@ cloud_controller_ng/
 .\#*
 .bundle
 .DS_Store
+/.ruby-version
 /.tmp
