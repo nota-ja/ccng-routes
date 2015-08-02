@@ -10,4 +10,4 @@ index cfa969d..cc1395b 100644
 +        $stderr.printf("####### %-6s %-80s {:controller => \"#{klass}\", :action => \"#{action.to_s}\"}\n", verb.upcase, path)
        end
  
-       [:post, :get, :put, :delete].each do |verb|
+       [:post, :get, :put, :delete, :patch].each do |verb|
