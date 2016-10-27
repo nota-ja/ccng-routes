@@ -6,6 +6,7 @@ require "bundler/setup"
 
 $:.unshift(File.join(ccng_repo, "lib"))
 $:.unshift(File.join(ccng_repo, "app"))
+$:.unshift(File.join(ccng_repo, "middleware"))
 
 task :routes do
   Dir.chdir(ccng_repo) do
