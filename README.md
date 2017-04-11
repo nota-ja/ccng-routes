@@ -4,6 +4,9 @@
 
 The Cloud Foundry CCng (cloud_controller_ng) component generates its API routes dynamically. This tool prints the generated routes in Ruby-on-Rails "rake routes" style.
 
+## Example
+
+[Routes for CCng API v2.79.0](https://gist.github.com/nota-ja/d6a29229f21b863ba643ca584ef9e5e3)
 
 ## Prerequisites
 
